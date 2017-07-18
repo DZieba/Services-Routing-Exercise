@@ -1,0 +1,19 @@
+
+<div class="container">
+  <br><br>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="list-group">
+        <div class="list-group-item"  *ngFor="let owner of owners" >
+          <div class="list-group-item-heading">
+            {{owner.name}}
+          </div>
+          <div class="list-group-item-text" >
+            {{owner.city}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,34 @@
+<div class="container">
+<div class="row">
+  <div class="col-sm12">
+    <form>
+      <div class="row">
+        <div class="col-sm-4 form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" class="form-control" #nameInput>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 form-group">
+          <label for="race">Race</label>
+          <input type="text" id="race" class="form-control" #raceInput>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 form-group">
+          <label for="age">Age</label>
+          <input type="text" id="age" class="form-control" #ageInput>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 form-group">
+          <label for="owner">Owner</label>
+          <input type="text" id="owner" class="form-control" #ownerInput>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+  <button type="button" class="btn btn-success" (click)="addAnimal()">Add this animal</button>
+</div>

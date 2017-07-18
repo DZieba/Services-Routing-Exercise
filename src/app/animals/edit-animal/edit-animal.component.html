@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+<div class="form-group">
+      <label for="name">Animal's Name</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        [(ngModel)]="animalName">
+    </div>
+      <div class="form-group">
+        <label for="race">Animal's Race</label>
+        <input
+          type="text"
+          id="race"
+          class="form-control"
+          [(ngModel)]="animalRace">
+      </div>
+      <div class="form-group">
+        <label for="age">Animal's Age</label>
+        <input
+          type="text"
+          id="age"
+          class="form-control"
+          [(ngModel)]="animalAge">
+      </div>
+      <div class="form-group">
+        <label for="owner">Animal's Owner</label>
+        <input
+          type="text"
+          id="owner"
+          class="form-control"
+          [(ngModel)]="animalOwner">
+      </div>
+      <button class="btn btn-primary"
+        (click)="onEditAnimal()">Edit Animal</button>
+    </div>
+  </div>
+</div>

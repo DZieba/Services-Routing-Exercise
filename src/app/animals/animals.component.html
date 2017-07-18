@@ -1,0 +1,38 @@
+<div class="container">
+  <br><br>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="list-group">
+
+      <div *ngFor="let animal of animals">
+        <div class="list-group-item  list-group-item-success">
+        <a [routerLink]="['/animals',animal.id,animal.name]"
+
+
+ class="list-group-item-heading">
+  {{animal.name}}</a>
+
+        <a [routerLink]="['/owners']"
+
+
+           class="list-group-item-info"> | owner:
+            {{animal.owner}}
+           </a> </div>
+    </div>
+
+  </div>
+  </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <button type="button" class="btn btn-primary" (click)="onAddAnimal()">Add Animal</button>
+
+
+    </div>
+  </div>
+<div class="row">
+  <router-outlet></router-outlet>
+
+</div></div>
