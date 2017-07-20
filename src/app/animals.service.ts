@@ -38,13 +38,20 @@ export class AnimalsService {
       owner:"Mr Glice"
     },
   ];
+
   getAnimals(){
     return this.animals;
   }
-
   getAnimal(id:number){
-    return this.animals[id-1];
+    const animal = this.animals.find(
+      (a)=>{
+        return a.id === id;
+      }
+    );
+    return animal;
   }
+
+
 EditAnimal(id:number, name:string, race:string, age:number, owner:string) {
     const animal = this.animals.find(
       (a)=> {

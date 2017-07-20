@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AnimalsService} from '../../animals.service';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Subscription} from 'rxjs/Subscription';
+
 @Component({
   selector: 'app-animal',
   templateUrl: './animal.component.html',
@@ -20,12 +21,11 @@ this.animal=this.animalsService.getAnimal(id);
   this.route.params
   .subscribe(
     (params:Params) => {
-      this.animal=this.animalsService.getAnimal(params['id']);
+      this.animal=this.animalsService.getAnimal(+params['id']);
 
     }
   )}
 
   EditAnimal(){
-    this.router.navigate(['/animals',this.animal.id,'edit'] )
-  }
+    this.router.navigate(['edit'],{relativeTo: this.route, queryParamsHandling: 'preserve'}) }
 }

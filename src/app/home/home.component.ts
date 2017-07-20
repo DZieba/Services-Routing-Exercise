@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {AuthService} from "../auth.service";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,10 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+loggedin=false;
   constructor(private router: Router,
-  private route: ActivatedRoute) { }
+  private route: ActivatedRoute,
+  private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -18,5 +20,14 @@ onLoadAnimals(){
 }
   onLoadOwners(){
     this.router.navigate(['/owners'],{relativeTo:this.route})
+  }
+
+  logIn(){
+    this.authService.logIn();
+    this.loggedin=true;
+  }
+  logOut(){
+    this.authService.logOut();
+    this.loggedin=false;
   }
 }

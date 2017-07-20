@@ -1,3 +1,5 @@
+<h3 *ngIf="!allowEdit">You cant's update this animal</h3>
+<div *ngIf="allowEdit">
 <div class="container">
   <div class="row">
     <div class="col-lg-4">
@@ -37,4 +39,5 @@
         (click)="onEditAnimal()">Edit Animal</button>
     </div>
   </div>
+</div>
 </div>

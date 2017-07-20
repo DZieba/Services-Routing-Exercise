@@ -1,38 +1,45 @@
 <div class="container">
   <br><br>
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-4">
     <div class="list-group">
 
       <div *ngFor="let animal of animals">
         <div class="list-group-item  list-group-item-success">
-        <a [routerLink]="['/animals',animal.id,animal.name]"
+        <a  [routerLink]="['/animals',animal.id,animal.name]"
+      [queryParams]="{allowEdit: animal.owner==='Mr Pump'? '1' : '0'}"
 
-
- class="list-group-item-heading">
+ class="list-group-item-heading no_link">
   {{animal.name}}</a>
 
         <a [routerLink]="['/owners']"
 
 
-           class="list-group-item-info"> | owner:
+           class="list-group-item-info no_link"> | owner:
             {{animal.owner}}
            </a> </div>
     </div>
 
   </div>
+    <button type="button" class="btn btn-primary" (click)="onAddAnimal()">Add Animal<br><span class="glyphicon glyphicon-plus"></span></button><br>
+
+
+
+
   </div>
 
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12">
-        <button type="button" class="btn btn-primary" (click)="onAddAnimal()">Add Animal</button>
 
 
-    </div>
-  </div>
-<div class="row">
+
+
+
+
+
+
+
+  <div class="col-sm-8">
   <router-outlet></router-outlet>
 
-</div></div>
+</div>
+</div>
+</div>

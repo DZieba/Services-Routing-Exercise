@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {AnimalsService} from './animals.service';
-import {Routes,RouterModule} from '@angular/router';
 import { AnimalsComponent } from './animals/animals.component';
 import { OwnersComponent } from './owners/owners.component';
 import { HomeComponent } from './home/home.component';
@@ -12,14 +11,13 @@ import { AnimalComponent } from './animals/animal/animal.component';
 import { EditAnimalComponent } from './animals/edit-animal/edit-animal.component';
 import {OwnersService} from './owners.service';
 import { NewAnimalComponent } from './animals/new-animal/new-animal.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {AppRoutingModule} from "./app-routing.module";
+import {AuthGuard} from "./auth-guard.service";
+import {AuthService} from "./auth.service";
+import {CanDeactivateGuard} from "./animals/edit-animal/can-deactivate-guard.service";
 
-const appRoutes: Routes=[
-  {path:'', component: HomeComponent},
-  {path:'animals', component: AnimalsComponent},
-  {path:'animals/new-animal', component: NewAnimalComponent},
-  {path:'animals/:id/edit', component: EditAnimalComponent},
-  {path:'animals/:id/:name', component: AnimalComponent},
-  {path:'owners', component: OwnersComponent}]
+
 
 
 @NgModule({
@@ -31,6 +29,7 @@ const appRoutes: Routes=[
     AnimalComponent,
     EditAnimalComponent,
     NewAnimalComponent,
+    PageNotFoundComponent,
 
 
   ],
@@ -38,9 +37,9 @@ const appRoutes: Routes=[
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
-  providers: [AnimalsService, OwnersService],
+  providers: [AnimalsService, OwnersService,AuthGuard,AuthService,CanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
